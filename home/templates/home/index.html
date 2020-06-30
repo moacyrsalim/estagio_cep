@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+
+
+
+
+    <style>
+        .main{
+            width: 100%;
+            height: 100%;
+        }
+
+
+        table, th, td {
+  border: 1px solid black;
+		}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Teste</title>
+</head>
+
+<body>
+
+	<!--Crianção de Tabela de endereços-->
+
+	<table style="width:100%">
+  		<tr>
+    		<th>CEP</th>
+    		<th>Logradouro</th>
+    		<th>Número</th>
+			<th>Complemento</th>
+			<th>Bairro</th>
+			<th>Estado</th>
+  		</tr>
+	</table>
+
+
+	<!--Usando e importando jQuery para aplicar no código-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!--Criação do Formulário a ser preenchido-->
+	<div class="table">
+	<form>
+		<label for="cep">CEP</label><br>
+		<input id="cep" type="text" required/><br>
+		<label for="logradouro">Logradouro</label><br>
+		<input id="logradouro" type="text" required/><br>
+		<label for="numero">Número</label><br>
+		<input id="numero" type="text" /><br>
+		<label for="complemento">Complemento</label><br>
+		<input id="complemento" type="text"/><br>
+		<label for="bairro">Bairro</label><br>
+		<input id="bairro" type="text" required/><br>
+		<label for="uf">Estado</label><br>
+		<select id="uf">
+			<option value="AC">Acre</option>
+			<option value="AL">Alagoas</option>
+			<option value="AP">Amapá</option>
+			<option value="AM">Amazonas</option>
+			<option value="BA">Bahia</option>
+			<option value="CE">Ceará</option>
+			<option value="DF">Distrito Federal</option>
+			<option value="ES">Espírito Santo</option>
+			<option value="GO">Goiás</option>
+			<option value="MA">Maranhão</option>
+			<option value="MT">Mato Grosso</option>
+			<option value="MS">Mato Grosso do Sul</option>
+			<option value="MG">Minas Gerais</option>
+			<option value="PA">Pará</option>
+			<option value="PB">Paraíba</option>
+			<option value="PR">Paraná</option>
+			<option value="PE">Pernambuco</option>
+			<option value="PI">Piauí</option>
+			<option value="RJ">Rio de Janeiro</option>
+			<option value="RN">Rio Grande do Norte</option>
+			<option value="RS">Rio Grande do Sul</option>
+			<option value="RO">Rondônia</option>
+			<option value="RR">Roraima</option>
+			<option value="SC">Santa Catarina</option>
+			<option value="SP">São Paulo</option>
+			<option value="SE">Sergipe</option>
+			<option value="TO">Tocantins</option>
+		</select>
+            <button type="button">Cadastrar!</button>
+
+	</form>
+	</div>
+
+	<!--Substituição de campos no formulário-->
+
+
+	<script type="text/javascript">
+		$("#cep").focusout(function(){
+			$.ajax({
+				url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+				dataType: 'json',
+				success: function(resposta){
+					$("#logradouro").val(resposta.logradouro);
+					$("#complemento").val(resposta.complemento);
+					$("#bairro").val(resposta.bairro);
+					$("#cidade").val(resposta.localidade);
+					$("#uf").val(resposta.uf);
+					$("#numero").focus();
+				}
+			});
+		});
+	</script>
+
+
+
+
+
+</body>
+</html>
+        </form>
+    </div>
+</body>
+</html>
